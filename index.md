@@ -17,18 +17,9 @@ I'm a Technical Project Manager
 
 ## Header 2
 
-> This is a blockquote following a header.
+
 >
 > When something is important enough, you do it even if the odds are not in your favor.
-### Header 3
-
-| head1        | head two          | three |
-|:-------------|:------------------|:------|
-| ok           | good swedish fish | nice  |
-| out of stock | good and plenty   | nice  |
-| ok           | good `oreos`      | hmm   |
-| ok           | good `zoute` drop | yumm  |
-
 
 ### Small image
 
