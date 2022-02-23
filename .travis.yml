@@ -2,6 +2,5 @@ language: ruby
 cache: bundler
 rvm: 2.6
 
-before_install: chmod +x /bin/sh
 install: script/bootstrap
 script: script/cibuild
