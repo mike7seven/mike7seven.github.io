@@ -14,5 +14,5 @@ I invent & build technology that matters with a focus on turning novel ideas int
 
 ## Contact
 - GitHub: [mike7seven](https://github.com/mike7seven)
-- Email: [Contact Email]
-- LinkedIn: [LinkedIn Profile]
+- LinkedIn: [Mike Weihrouch](https://www.linkedin.com/in/mikeweihrouch/)
+- Website: [michaelweihrouch.com](https://michaelweihrouch.com/)
