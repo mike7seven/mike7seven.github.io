@@ -11,26 +11,28 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#6366f1',
-                        secondary: '#EC4899',
-                        dark: '#0F172A'
+                        claude: {
+                            dark: '#0E1116',
+                            accent: '#4D68C2',
+                            border: '#1E242C'
+                        }
                     }
                 }
             }
         }
     </script>
 </head>
-<body class="bg-dark text-gray-200 min-h-screen">
-    <nav class="border-b border-gray-800">
+<body class="bg-claude-dark text-gray-200 min-h-screen">
+    <nav class="border-b border-claude-border">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
-                    <span class="text-2xl font-bold bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text">MS</span>
+                    <span class="text-2xl font-bold text-claude-accent">MS</span>
                 </div>
                 <div class="flex items-center space-x-4">
-                    <a href="#projects" class="hover:text-primary transition-colors">Projects</a>
-                    <a href="#about" class="hover:text-primary transition-colors">About</a>
-                    <a href="#contact" class="hover:text-primary transition-colors">Contact</a>
+                    <a href="#projects" class="hover:text-claude-accent transition-colors">Projects</a>
+                    <a href="#about" class="hover:text-claude-accent transition-colors">About</a>
+                    <a href="#contact" class="hover:text-claude-accent transition-colors">Contact</a>
                 </div>
             </div>
         </div>
@@ -41,17 +43,17 @@
         <div class="relative overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
                 <div class="text-center">
-                    <h1 class="text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text">
+                    <h1 class="text-5xl font-bold mb-6 text-claude-accent">
                         Mike Seven
                     </h1>
                     <p class="text-xl text-gray-400 mb-8">
                         Developer, Creator, Problem Solver
                     </p>
                     <div class="flex justify-center space-x-4">
-                        <a href="#projects" class="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg transition-colors">
+                        <a href="#projects" class="bg-claude-accent hover:bg-claude-accent/90 text-white px-6 py-3 rounded-lg transition-colors">
                             View Projects
                         </a>
-                        <a href="#contact" class="border border-primary text-primary hover:bg-primary/10 px-6 py-3 rounded-lg transition-colors">
+                        <a href="#contact" class="border border-claude-accent text-claude-accent hover:bg-claude-accent/10 px-6 py-3 rounded-lg transition-colors">
                             Get in Touch
                         </a>
                     </div>
@@ -60,22 +62,21 @@
         </div>
 
         <!-- Projects Section -->
-        <section id="projects" class="py-20 bg-gray-900/50">
+        <section id="projects" class="py-20 bg-[#161920]">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="text-3xl font-bold mb-12 text-center">Featured Projects</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Project Card 1 -->
-                    <div class="bg-dark border border-gray-800 rounded-lg overflow-hidden hover:border-primary transition-colors">
+                    <!-- Project Card -->
+                    <div class="bg-claude-dark border border-claude-border rounded-lg overflow-hidden hover:border-claude-accent transition-colors">
                         <div class="p-6">
                             <h3 class="text-xl font-semibold mb-2">Project Name</h3>
                             <p class="text-gray-400 mb-4">Project description goes here. Brief overview of what it does.</p>
                             <div class="flex space-x-2">
-                                <span class="px-2 py-1 bg-primary/20 text-primary rounded text-sm">React</span>
-                                <span class="px-2 py-1 bg-primary/20 text-primary rounded text-sm">Node.js</span>
+                                <span class="px-2 py-1 bg-claude-accent/20 text-claude-accent rounded text-sm">React</span>
+                                <span class="px-2 py-1 bg-claude-accent/20 text-claude-accent rounded text-sm">Node.js</span>
                             </div>
                         </div>
                     </div>
-                    <!-- Add more project cards as needed -->
                 </div>
             </div>
         </section>
@@ -89,13 +90,13 @@
                     I love building elegant solutions to complex problems.
                 </p>
                 <div class="flex justify-center space-x-4">
-                    <a href="https://github.com/mike7seven" target="_blank" class="text-gray-400 hover:text-primary">
+                    <a href="https://github.com/mike7seven" target="_blank" class="text-gray-400 hover:text-claude-accent">
                         GitHub
                     </a>
-                    <a href="#" class="text-gray-400 hover:text-primary">
+                    <a href="#" class="text-gray-400 hover:text-claude-accent">
                         LinkedIn
                     </a>
-                    <a href="#" class="text-gray-400 hover:text-primary">
+                    <a href="#" class="text-gray-400 hover:text-claude-accent">
                         Twitter
                     </a>
                 </div>
@@ -103,20 +104,20 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="py-20 bg-gray-900/50">
+        <section id="contact" class="py-20 bg-[#161920]">
             <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h2 class="text-3xl font-bold mb-8">Get in Touch</h2>
                 <p class="text-gray-400 mb-8">
                     Interested in working together? Let's connect.
                 </p>
-                <a href="mailto:your.email@example.com" class="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-lg inline-block transition-colors">
+                <a href="mailto:your.email@example.com" class="bg-claude-accent hover:bg-claude-accent/90 text-white px-8 py-3 rounded-lg inline-block transition-colors">
                     Send Email
                 </a>
             </div>
         </section>
     </main>
 
-    <footer class="border-t border-gray-800 py-8">
+    <footer class="border-t border-claude-border py-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400">
             <p>&copy; 2025 Mike Seven. All rights reserved.</p>
         </div>
