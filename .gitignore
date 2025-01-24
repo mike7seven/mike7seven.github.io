@@ -11,6 +11,13 @@
 !.vscode/extensions.json
 !.vscode/*.code-snippets
 
+# Project
+node_modules/
+.quartz-cache/
+public/
+.DS_Store
+
+
 # Local History for Visual Studio Code
 .history/
 
