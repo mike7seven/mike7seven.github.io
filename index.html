@@ -1,1 +1,121 @@
-I invent & build technology that matters with a focus on turning novel ideas into real world impact. Here I explore the possibilities & challenges of innovation, share insights from building new technology, and examine where tech is taking us next. I love building elegant solutions to complex problems.
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mike Seven - Developer & Creator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        claude: {
+                            dark: '#0E1116',
+                            accent: '#4D68C2',
+                            border: '#1E242C'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-claude-dark text-gray-200 min-h-screen">
+    <nav class="border-b border-claude-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold text-claude-accent">MS</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="#projects" class="hover:text-claude-accent transition-colors">Projects</a>
+                    <a href="#about" class="hover:text-claude-accent transition-colors">About</a>
+                    <a href="#contact" class="hover:text-claude-accent transition-colors">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <!-- Hero Section -->
+        <div class="relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+                <div class="text-center">
+                    <h1 class="text-5xl font-bold mb-6 text-claude-accent">
+                        Mike Seven
+                    </h1>
+                    <p class="text-xl text-gray-400 mb-8">
+                        Developer, Creator, Problem Solver
+                    </p>
+                    <div class="flex justify-center space-x-4">
+                        <a href="#projects" class="bg-claude-accent hover:bg-claude-accent/90 text-white px-6 py-3 rounded-lg transition-colors">
+                            View Projects
+                        </a>
+                        <a href="#contact" class="border border-claude-accent text-claude-accent hover:bg-claude-accent/10 px-6 py-3 rounded-lg transition-colors">
+                            Get in Touch
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 bg-[#161920]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold mb-12 text-center">Featured Projects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project Card -->
+                    <div class="bg-claude-dark border border-claude-border rounded-lg overflow-hidden hover:border-claude-accent transition-colors">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">Project Name</h3>
+                            <p class="text-gray-400 mb-4">Project description goes here. Brief overview of what it does.</p>
+                            <div class="flex space-x-2">
+                                <span class="px-2 py-1 bg-claude-accent/20 text-claude-accent rounded text-sm">React</span>
+                                <span class="px-2 py-1 bg-claude-accent/20 text-claude-accent rounded text-sm">Node.js</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- About Section -->
+        <section id="about" class="py-20">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl font-bold mb-8">About Me</h2>
+                <p class="text-gray-400 mb-6">
+                    A passionate developer with expertise in modern web technologies.
+                    I love building elegant solutions to complex problems.
+                </p>
+                <div class="flex justify-center space-x-4">
+                    <a href="https://github.com/mike7seven" target="_blank" class="text-gray-400 hover:text-claude-accent">
+                        GitHub
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-claude-accent">
+                        LinkedIn
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-claude-accent">
+                        Twitter
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-[#161920]">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl font-bold mb-8">Get in Touch</h2>
+                <p class="text-gray-400 mb-8">
+                    Interested in working together? Let's connect.
+                </p>
+                <a href="mailto:your.email@example.com" class="bg-claude-accent hover:bg-claude-accent/90 text-white px-8 py-3 rounded-lg inline-block transition-colors">
+                    Send Email
+                </a>
+            </div>
+        </section>
+    </main>
+    <footer class="border-t border-claude-border py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400">
+            <p>&copy; 2025 Mike Seven. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
