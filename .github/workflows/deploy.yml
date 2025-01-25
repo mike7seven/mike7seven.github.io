@@ -1,10 +1,12 @@
 name: Deploy to GitHub Pages
 
 on:
-  push:
+  workflow_run:
+    workflows: ["Build and Test"]
+    types:
+      - completed
     branches:
       - main
-  workflow_dispatch:
 
 permissions:
   contents: read
@@ -22,17 +24,19 @@ env:
 
 jobs:
   deploy:
-    if: ${{ github.repository == 'mike7seven/mike7seven.github.io' }}
+    if: ${{ github.repository == 'mike7seven/mike7seven.github.io' && github.event.workflow_run.conclusion == 'success' }}
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Download artifact
-        uses: actions/download-artifact@v4
+        uses: dawidd6/action-download-artifact@v3
         with:
+          workflow: Build and Test
           name: github-pages
           path: ./dist
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Deploy to GitHub Pages
         id: deployment
