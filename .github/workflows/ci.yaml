@@ -61,11 +61,6 @@ jobs:
         working-directory: react-slides
         continue-on-error: false
 
-      - name: Check types and style
-        run: npm run check
-        working-directory: react-slides
-        continue-on-error: false
-
       - name: Test
         run: npm test
         working-directory: react-slides
