@@ -1,13 +1,20 @@
-name: Build and Test
+name: Deploy static content to Pages
 
 on:
-  pull_request:
-    branches:
-      - main
   push:
-    branches:
-      - main
+    branches: ['main']
   workflow_dispatch:
+
+# Sets the GITHUB_TOKEN permissions to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
 
 env:
   NODE_ENV: production
@@ -15,14 +22,12 @@ env:
   VITE_BASE_URL: /
 
 jobs:
-  build-and-test:
+  deploy:
     if: ${{ github.repository == 'mike7seven/mike7seven.github.io' }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-    runs-on: ${{ matrix.os }}
-    permissions:
-      contents: read
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout GitHub Pages repo
         uses: actions/checkout@v4
@@ -48,18 +53,20 @@ jobs:
 
       - name: Install dependencies
         working-directory: react-slides
-        run: |
-          npm install
-        continue-on-error: false
+        run: npm install
 
       - name: Build
         working-directory: react-slides
-        run: |
-          npm run build
-        continue-on-error: false
+        run: npm run build
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: react-slides/dist
-          retention-days: 7
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4 
