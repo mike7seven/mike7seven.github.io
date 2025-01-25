@@ -48,15 +48,14 @@ jobs:
 
       - name: Install dependencies
         working-directory: react-slides
-        run: npm ci
+        run: |
+          npm install
         continue-on-error: false
 
       - name: Build
         working-directory: react-slides
         run: |
-          node node_modules/vite/bin/vite.js build
-        env:
-          VITE_BASE_URL: /
+          npm run build
         continue-on-error: false
 
       - name: Upload artifact
