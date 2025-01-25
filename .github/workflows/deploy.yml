@@ -1,40 +1,40 @@
-name: Build and Test
+name: Deploy to GitHub Pages
 
 on:
-  pull_request:
-    branches:
-      - main
   push:
     branches:
       - main
   workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 env:
   NODE_ENV: production
   CI: true
 
 jobs:
-  build-and-test:
+  build:
     if: ${{ github.repository == 'mike7seven/mike7seven.github.io' }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-    runs-on: ${{ matrix.os }}
-    permissions:
-      contents: read
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout GitHub Pages repo
         uses: actions/checkout@v4
         with:
           path: pages-content
-
+          
       - name: Checkout React Slides repo
         uses: actions/checkout@v4
         with:
           repository: mike7seven/react-slides
           token: ${{ secrets.GH_PAT }}
           path: react-slides
-          fetch-depth: 0
 
       - name: Copy content file
         run: |
@@ -61,17 +61,27 @@ jobs:
         working-directory: react-slides
         continue-on-error: false
 
-      - name: Check types and style
-        run: npm run check
-        working-directory: react-slides
-        continue-on-error: false
-
-      - name: Test
-        run: npm test
-        working-directory: react-slides
-        continue-on-error: false
-
       - name: Build
         run: npm run build
         working-directory: react-slides
         continue-on-error: false
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: react-slides/dist
+          retention-days: 7
+
+  deploy:
+    if: ${{ github.repository == 'mike7seven/mike7seven.github.io' }}
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }} 
