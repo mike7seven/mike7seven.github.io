@@ -19,7 +19,7 @@ concurrency:
 env:
   NODE_ENV: production
   CI: true
-  VITE_BASE_URL: /
+  VITE_BASE_URL: /react-slides/
 
 jobs:
   deploy:
