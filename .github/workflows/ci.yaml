@@ -26,7 +26,7 @@ jobs:
     if: ${{ github.repository == 'mike7seven/mike7seven.github.io' }}
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ github.repository }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout main repo
@@ -49,23 +49,38 @@ jobs:
           cache: 'npm'
           cache-dependency-path: react-slides/package-lock.json
 
+      - name: Check Node.js and npm versions
+        run: |
+          node -v
+          npm -v
+        working-directory: react-slides
+
       - name: Install dependencies
         working-directory: react-slides
         run: npm ci
+
+      - name: List installed npm packages
+        run: npm list
+        working-directory: react-slides
+
+      - name: Print PATH
+        run: echo $PATH
+        working-directory: react-slides
 
       - name: Build
         working-directory: react-slides
         run: npm run build
 
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: build
+          path: react-slides/dist
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          # Upload dist folder
-          path: 'react-slides/dist'
-
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4 
+        uses: actions/deploy-pages@v1
+        with:
+          token: ${{ secrets.GH_PAT }}
