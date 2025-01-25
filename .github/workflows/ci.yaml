@@ -56,6 +56,5 @@ jobs:
 
       - name: Build
         working-directory: react-slides
-        run: |
-          npx vite build
+        run: npm run build
         continue-on-error: false
