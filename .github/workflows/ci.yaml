@@ -17,6 +17,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
+  NODE_ENV: production
   CI: true
   VITE_BASE_URL: /react-slides/
 
@@ -70,14 +71,13 @@ jobs:
         working-directory: react-slides
         run: npm run build
 
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
-          name: build
-          path: react-slides/dist
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
+          path: './react-slides/dist'
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v1
