@@ -50,15 +50,12 @@ jobs:
 
       - name: Install dependencies
         working-directory: react-slides
-        run: |
-          npm ci
-          npm install -g vite
+        run: npm ci
         continue-on-error: false
 
       - name: Build
         working-directory: react-slides
-        run: |
-          npm run build
+        run: npm run build
         continue-on-error: false
 
       - name: Upload artifact
