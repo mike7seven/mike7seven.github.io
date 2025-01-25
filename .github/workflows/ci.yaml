@@ -29,34 +29,25 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout GitHub Pages repo
-        uses: actions/checkout@v4
-
-      - name: Checkout React Slides repo
+      - name: Checkout
         uses: actions/checkout@v4
         with:
           repository: mike7seven/react-slides
           token: ${{ secrets.GH_PAT }}
-          path: react-slides
-          fetch-depth: 0
 
       - name: Copy content file
-        run: |
-          cp content.md react-slides/public/
+        run: cp content.md public/
           
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'npm'
-          cache-dependency-path: react-slides/package-lock.json
 
       - name: Install dependencies
-        working-directory: react-slides
         run: npm ci
 
       - name: Build
-        working-directory: react-slides
         run: npm run build
 
       - name: Setup Pages
@@ -65,8 +56,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload dist folder from react-slides
-          path: react-slides/dist
+          # Upload dist folder
+          path: './dist'
 
       - name: Deploy to GitHub Pages
         id: deployment

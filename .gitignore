@@ -63,4 +63,4 @@ $RECYCLE.BIN/
 *.lnk
 
 # Ignore CodeQL Analysis
-.github/workflows/codeql-analysis.yml
+# .github/workflows/codeql-analysis.yml
