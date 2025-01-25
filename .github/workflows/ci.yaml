@@ -37,7 +37,7 @@ jobs:
 
       - name: Copy content file
         run: |
-          cp mike7seven.github.io/content.md react-slides/public/
+          cp content.md react-slides/public/
           
       - name: Setup Node
         uses: actions/setup-node@v4
