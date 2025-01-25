@@ -44,7 +44,7 @@ jobs:
         run: |
           cp content.md react-slides/public/
           
-      - name: Setup Node
+      - name: Set up Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -53,7 +53,7 @@ jobs:
 
       - name: Install dependencies
         working-directory: react-slides
-        run: npm install
+        run: npm ci
 
       - name: Build
         working-directory: react-slides
@@ -65,6 +65,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
+          # Upload dist folder from react-slides
           path: react-slides/dist
 
       - name: Deploy to GitHub Pages
