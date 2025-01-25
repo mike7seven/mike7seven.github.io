@@ -26,8 +26,6 @@ jobs:
     steps:
       - name: Checkout GitHub Pages repo
         uses: actions/checkout@v4
-        with:
-          path: pages-content
 
       - name: Checkout React Slides repo
         uses: actions/checkout@v4
@@ -50,10 +48,14 @@ jobs:
 
       - name: Install dependencies
         working-directory: react-slides
-        run: npm ci
+        run: |
+          pwd
+          ls -la
+          npm ci
         continue-on-error: false
 
       - name: Build
         working-directory: react-slides
-        run: npm run build
+        run: |
+          npx vite build
         continue-on-error: false
