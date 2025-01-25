@@ -48,13 +48,18 @@ jobs:
 
       - name: Install dependencies
         working-directory: react-slides
-        run: |
-          pwd
-          ls -la
-          npm ci
+        run: npm ci
         continue-on-error: false
 
       - name: Build
         working-directory: react-slides
-        run: ./node_modules/.bin/vite build
+        run: npm run build
+        env:
+          VITE_BASE_URL: /
         continue-on-error: false
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: react-slides/dist
+          retention-days: 7
