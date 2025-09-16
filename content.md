@@ -1,5 +1,4 @@
-
-
+---
 # Mike7seven | Innovator & Creator  
 I'm Mike Weihrouch - an inventor, creator, and problem solver. I build technology that matters with a focus on turning novel ideas into real world impact.
 
