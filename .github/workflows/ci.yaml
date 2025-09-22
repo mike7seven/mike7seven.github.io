@@ -29,10 +29,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout main repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Checkout React Slides repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: mike7seven/react-slides
           token: ${{ secrets.GH_PAT }}
@@ -42,7 +42,7 @@ jobs:
         run: cp content.md react-slides/public/
           
       - name: Set up Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 20
           cache: 'npm'
@@ -71,7 +71,7 @@ jobs:
         run: npm run build
 
       - name: Setup Pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v5
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
